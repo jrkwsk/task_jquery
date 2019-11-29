@@ -1,0 +1,55 @@
+//code to be executed in the console on a website 
+
+
+$(document).ready(function() {
+        var count = 9; /*krótki czas, bo to tylko demo*/
+        var newSlogan = $("<p></p>").css({
+            "color": "white",
+            "text-align": "center",
+            "background": "rgb(0,0,0)",
+            "background": "radial-gradient(circle, rgba(52,52,52,1) 0%, rgba(0,0,0,1) 100%)",
+            "width": "100%",
+            "margin": "0 auto",
+            "padding": "10px 0"
+        });
+       
+        var imgOne = $("<div></div>").css({
+            "background-image": "url(https://source.unsplash.com/1900x800/?galaxy,stars)",
+            "background-size": "cover",
+            "background-repeat": "no-repeat",
+            "background-position": "top",
+            "width": "100%",
+            "margin": "0 auto",
+            "height": "25vh",
+            "filter": "grayscale(90%)",
+            "margin-top": "20px"
+        });
+       
+        var imgTwo = $("<div></div>").css({
+            "background-image": "url(https://source.unsplash.com/1900x800/?galaxy,stars)",
+            "background-size": "cover",
+            "background-repeat": "no-repeat",
+            "background-position": "bottom",
+            "width": "100%",
+            "margin": "0 auto",
+            "height": "25vh",
+            "filter": "grayscale(90%)",
+            "margin-bottom": "20px"
+        });
+           
+        var timer = setInterval(function() {
+            $(newSlogan).html("Kosmiczna promocja! Za " + count + "s");
+            count--;
+            if (count === 0) {
+                stopInterval()
+            }
+        }, 1000);
+
+        var stopInterval = function() {
+            $(newSlogan).html("-99% z kodem: 99XOXO ;)");
+            alert("Gratulacje! Wygrywasz zniżkę 99% z kodem 99XOXO");
+            clearInterval(timer);
+        }
+       
+            $(".scroll-fixed").append(imgOne, newSlogan, imgTwo);
+    });
